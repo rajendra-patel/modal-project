@@ -2,6 +2,10 @@
     <header>
         <h1 @click="changeTitle">{{ title }}</h1>
     </header>
+    <nav>
+      <router-link to="/home" exact>Home</router-link> |
+      <router-link to="/about" exact>About</router-link>
+    </nav>
 </template>
 <script>
 export default {

@@ -1,6 +1,6 @@
 <template>
     <footer>
-        <p>Copyright 2017 {{ title }}</p>
+        <p>Copyright 2017 {{ htitle }}</p>
     </footer>
 </template>
 <script>
@@ -13,7 +13,7 @@ export default {
     },
     data(){
         return{
-
+            htitle: this.title
         }
     }
 }

@@ -1,6 +1,10 @@
 <template>
     <div>
         <app-header :title="title" @onTitleChange="updateTitle($event)"></app-header>
+        <router-view></router-view>
+        <keep-alive>
+            <component :is="component"></component>
+        </keep-alive>
         <app-ninjas :ninjas="ninjas"></app-ninjas>
         <ul>
           <li v-for="(ninja, index) in ninjas" :key="index">{{ ninja.name }}</li>
@@ -14,12 +18,14 @@
 import Header from './components/Header.vue';
 import Footer from './components/Footer.vue';
 import Ninjas from './components/Ninjas.vue';
+import HelloWorld from './components/HelloWorld';
 
 export default {
     components: {
         'app-header': Header,
         'app-footer': Footer,
-        'app-ninjas': Ninjas
+        'app-ninjas': Ninjas,
+        'app-hello': HelloWorld
     },
     data () {
         return {
@@ -31,7 +37,8 @@ export default {
               {name: 'Kami', speciality: 'Webpack', show: false},
               {name: 'Yoshi', speciality: 'Data Diggin', show: false}
           ],
-          title: 'Vue Wizards'
+          title: 'Vue Wizards',
+          component: 'app-hello'
         }
     },
     methods: {
