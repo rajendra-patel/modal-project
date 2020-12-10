@@ -1,11 +1,11 @@
 <template>
     <div>
-        <app-header v-bind:title="title"></app-header>
-        <app-ninjas v-bind:ninjas="ninjas"></app-ninjas>
+        <app-header :title="title" @onTitleChange="updateTitle($event)"></app-header>
+        <app-ninjas :ninjas="ninjas"></app-ninjas>
         <ul>
           <li v-for="(ninja, index) in ninjas" :key="index">{{ ninja.name }}</li>
         </ul>
-        <app-footer v-bind:title="title"></app-footer>
+        <app-footer :title="title"></app-footer>
     </div>
 </template>
 
@@ -32,6 +32,11 @@ export default {
               {name: 'Yoshi', speciality: 'Data Diggin', show: false}
           ],
           title: 'Vue Wizards'
+        }
+    },
+    methods: {
+        updateTitle(event) {
+            this.title = event;
         }
     }
 }
